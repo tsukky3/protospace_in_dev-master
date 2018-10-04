@@ -145,7 +145,7 @@ body {
 .btn-group>.btn:hover, .btn-group-vertical>.btn:hover {
   z-index: 0;
 }
- .btn-group>.btn:focus:hover, .btn-group-vertical>.btn:focus:hover, .btn-group>.btn:active:hover, .btn-group-vertical>.btn:active:hover, .btn-group>.btn.active:hover, .btn-group-vertical>.btn.active:hover {
+.btn-group>.btn:focus:hover, .btn-group-vertical>.btn:focus:hover, .btn-group>.btn:active:hover, .btn-group-vertical>.btn:active:hover, .btn-group>.btn.active:hover, .btn-group-vertical>.btn.active:hover {
   z-index: 2;
 }
 
@@ -623,15 +623,15 @@ body {
 
 
 
-.alert--success {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #468847;
-}
+  .alert--success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+  }
 
-.alert--danger {
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  color: #a94442;
+  .alert--danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+  }
 }
-
