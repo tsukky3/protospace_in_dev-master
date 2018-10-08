@@ -8,6 +8,8 @@
         .media-body
           %h4#top-aligned-media.media-heading
             = @prototype.title
+          .proto__delete__button
+            = link_to "DELETE", prototype_path(@prototype),method: :delete
           .proto-user
             by
             = link_to "#{@prototype.user.name}", user_path(@prototype.user)
