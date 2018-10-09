@@ -26,13 +26,10 @@ class PrototypesController < ApplicationController
   end
 
   def update
-    if @prototype.update(prototype_params)
-      redirect_to :root, notice: 'Your prototype infomation was successfully updated'
-    else
-      render :edit
-    end
+    @prototype.update(prototype_params) if @prototype.user_id == current_user.id
+    redirect_to :root
   end
-  
+
   def destroy
     prototype = Prototype.find(params[:id])
     prototype.destroy if prototype.user_id == current_user.id
