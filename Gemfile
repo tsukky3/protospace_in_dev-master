@@ -28,3 +28,4 @@ end
 
 gem 'thin', group: :production
 gem 'rails_12factor', group: :production
+gem 'kaminari'
