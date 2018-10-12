@@ -15,7 +15,7 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to :root, notice: 'New prototype was successfully created'
     else
-      redirect_to :back, alert: 'YNew prototype was unsuccessfully created'
+      redirect_to  :back, alert: 'YNew prototype was unsuccessfully created''  全ての項目記入して'
     end
   end
 
@@ -23,14 +23,19 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+    # @prototype = Prototype.find(params[:id])
   end
 
   def update
-    if @prototype.update(prototype_params)
+    if @prototype.update(update_prototype_params)
       redirect_to :root, notice: 'Your prototype infomation was successfully updated'
     else
       render :edit
     end
+  end
+
+  def update_prototype_params
+    params.require(:prototype).permit(:title, :catch_copy, :concept, captured_images_attributes: [:id, :content, :status, :_destroy])
   end
   
   def destroy
@@ -44,13 +49,14 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
   end
 
+
   def prototype_params
     params.require(:prototype).permit(
       :title,
       :catch_copy,
       :concept,
       :user_id,
-      captured_images_attributes: [:content, :status]
+      captured_images_attributes: [:id, :content, :status]
       )
   end
 end
