@@ -1,15 +1,20 @@
 $(function(){
-  $('#prototype_captured_images_attributes_0_content').on("change", function(){
-    // $('#img-responsive').prop('disabled', false);
-    // $('#img-responsive').remove();
-    var file = $(this).prop('files')[0];
-    if(!file.type.match('image.*')){
-      return
+  $('#showImg').change(
+    function () {
+        if (!this.files.length) {
+            return;
+        }
+        var file = $(this).prop('files')[0];
+        var fr = new FileReader();
+        $('.cover-image-upload').css('background-image', 'none');
+          fr.onload = function() {
+            $('.cover-image-upload').css('background-image', 'url(' + fr.result + ')');
+            $('.cover-image-upload').css('background-size', '100%')
+          $('.cover-image-upload').css('width', 700)
+
+          }
+          fr.readAsDataURL(file);
+          $(".cover-image-upload img").css('opacity', 0);
     }
-    var fileReader = new FileReader();
-    fileReader.onloadend = function() {
-      $('.cover-image-upload').html('<img src="' + fileReader.result + '"/, width="701" height="500">').css('background-image', 'none');
-    }
-    fileReader.readAsDataURL(file);
-  });
-});
+  );
+})
